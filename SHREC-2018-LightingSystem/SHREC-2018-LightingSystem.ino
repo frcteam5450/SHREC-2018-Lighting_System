@@ -25,6 +25,7 @@ void setAll(int red , int green , int blue);
 void multipleCylonBounce(byte red, byte green, byte blue, int EyeSize, int SpeedDelay, int interim);
 void catapultFire(byte red, byte green, byte blue, double pixelDelay, int beginLed, int endLed);
 void showStrip();
+void setPixel(int led, byte red, byte green, byte blue);
 
 void setup() {
   // put your setup code here, to run once:
@@ -141,6 +142,10 @@ void showStrip() {
   strip.show();
 }
 
+
+void setPixel(int led, byte red, byte green, byte blue) {
+  strip.setPixelColor(led , strip.Color(red , green , blue));
+}
 
 
 
