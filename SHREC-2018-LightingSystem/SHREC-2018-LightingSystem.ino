@@ -43,17 +43,17 @@ int cLed2 = NUM_LEDS - 1;
 void loop() {
   
   if (digitalRead(10) == LOW && digitalRead(11) == LOW && digitalRead(12) == LOW) {
-    setAll(0, 125, 0);
+    setAll(0, 0, 255);
     showStrip();
   }
   
-  if (digitalRead(10) == LOW && digitalRead(11) == LOW && digitalRead(12) == LOW)
-    multipleCylonBounce(0, 255, 0, 1, 50 , 10);
+  if (digitalRead(10) == HIGH && digitalRead(11) == LOW && digitalRead(12) == LOW)
+    multipleCylonBounce(0, 0, 255, 1, 50 , 10);
 
-  if (digitalRead(10) == LOW && digitalRead(11) == LOW && digitalRead(12) == LOW)
-    multipleCylonBounce(0, 255, 0, 1, 20, 10);
+  if (digitalRead(10) == LOW && digitalRead(11) == HIGH && digitalRead(12) == LOW)
+    multipleCylonBounce(0, 0, 255, 1, 20, 10);
 
-  if (digitalRead(10) == LOW && digitalRead(11) == LOW && digitalRead(12) == LOW) {
+  if (digitalRead(10) == HIGH && digitalRead(11) == HIGH && digitalRead(12) == HIGH) {
     catapultFire(255, 255, 0);
   }
 }
@@ -156,7 +156,7 @@ void catapultFire(byte red, byte green, byte blue) {
   if (cLed < NUM_LEDS / 2) {
     setPixel(cLed , red , green , blue);
     setPixel(cLed2 , red , green , blue);
-    delay(2000 / 30);
+    delay(500 / 30);
     showStrip();
     cLed++;
     cLed2--;
